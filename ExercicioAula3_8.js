@@ -3,4 +3,9 @@ array. O índice do elemento a ser removido deve ser passado como
 argumento.*/
 
 let frutas = ["morango", "uva", "pera", "abacaxi"];
-const manipulacao = (array, posicao);
+
+const manipulacao = (array, posicao); => {
+array[posicao] = elemento;
+  console.log(array);
+};
+manipulacao(array, 2, 0);
