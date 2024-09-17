@@ -1,4 +1,4 @@
-/*Crie uma função que move um elemento de uma posição para outra em um
+/*9. Crie uma função que move um elemento de uma posição para outra em um
 array utilizando os métodos splice e push. O índice original e o novo índice
 devem ser passados como argumentos.*/
 

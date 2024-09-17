@@ -4,8 +4,9 @@ argumento.*/
 
 let frutas = ["morango", "uva", "pera", "abacaxi"];
 
-const manipulacao = (array, posicao); => {
-array[posicao] = elemento;
+const manipulacao = (array, posicao) => {
+  array.splice(posicao, 1);
   console.log(array);
 };
-manipulacao(array, 2, 0);
+
+manipulacao(frutas, 2);
