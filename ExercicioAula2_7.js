@@ -9,7 +9,8 @@ const rl = readline.createInterface({
 });
 
 rl.question(`Digite um valor em reais para converter em dolár:`, (num) => {
-  const conversao = parseFloat(num) / 5.6;
-  console.log(conversao.toFixed(2));
+  const conversao =
+    parseFloat(num) / 5.6; /* esses 5,60 é referente ao 1 dolar do enunciado*/
+  console.log(conversao);
   rl.close();
 });
