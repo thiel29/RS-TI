@@ -1,0 +1,14 @@
+{
+  "name": "list",
+  "version": "1.0.0",
+  "description": "Lista de Tarefas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ana Thiel Fortes",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^11.0.2"
+  }
+}
