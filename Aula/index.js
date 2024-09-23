@@ -1,30 +1,45 @@
-import { select, input, checkbox } from "@inquirer/prompts";
-import chalk from "chalk";
+/* Nomes: Ana Thiel Fortes, Davi de Oliveira Alves e Dieizon Cazuni*/
 
-const goal = {
-  value: "Tomar 3L de água por dia",
-  checked: false
+import fs from "node:fs/promises";
+import chalk from "chalk";
+import { select, input, checkbox } from "@inquirer/prompts";
+
+const file = "goals.json";
+let goals;
+let message = " Bem Vindo ao seu controle de metas!";
+
+const fetchGoals = async () => {
+  try {
+    const data = await fs.readFile(file, "utf-8");
+    goals = JSON.parse(data);
+  } catch (error) {
+    goals = [];
+  }
 };
 
-const goals = [goal];
+const saveGoals = async () => {
+  await fs.writeFile(file, JSON.stringify(goals, null, 2));
+};
 
 const registerGoal = async () => {
   const goal = await input({
     message: "Digite a sua meta:"
   });
   if (goal.length == 0) {
-    console.log(chalk.magenta.italic("A meta não pode ser vazia!"));
+    message = "A meta não pode ser vazia!";
     return;
   }
   goals.push({ value: goal, checked: false });
+  mesage = "Meta cadastrada com sucesso!";
 };
 
 const listGoals = async () => {
   if (goals.length == 0) {
-    console.log("Não existem metas cadastradas!");
+    message = "Não existem metas cadastradas!";
     return;
   }
   /*// armazena as metas marcadas como concluídas*/
+
   const checkedGoals = await checkbox({
     message:
       "Use as setas para mudar de meta, o espaço para marcar/desmarcar a meta e o enter para finalizar.",
@@ -37,7 +52,7 @@ const listGoals = async () => {
     goal.checked = false;
   });
   if (checkedGoals == 0) {
-    console.log("Nenhuma meta foi cadastrada!");
+    message = "Nenhuma meta foi cadastrada!";
     return;
   }
 
@@ -48,7 +63,7 @@ const listGoals = async () => {
     });
     goal.checked = true;
   });
-  console.log("Meta(s) marcada(s) como concluída!");
+  message = "Meta(s) marcada(s) como concluída!";
 };
 
 const listCompletedGoals = async () => {
@@ -57,7 +72,7 @@ const listCompletedGoals = async () => {
   });
 
   if (completedGoals.length == 0) {
-    console.log("Não existem meta(s) cadastradas.");
+    message = "Não existem meta(s) cadastradas.";
     return;
   }
 
@@ -72,7 +87,7 @@ const listIncompletedGoals = async () => {
   });
 
   if (incompletedGoals.length == 0) {
-    console.log("Todas as metas foram concluídas!");
+    message = "Todas as metas foram concluídas!";
     return;
   }
 
@@ -81,8 +96,52 @@ const listIncompletedGoals = async () => {
   });
 };
 
+const deleteGoals = async () => {
+  if (goals.length == 0) {
+    message = "Não existem metas cadastradas";
+    return;
+  }
+
+  const uncheckedGoals = goals.map((goal) => {
+    return { value: goal.value, checked: false };
+  });
+
+  const goalsToDelete = await checkbox({
+    message: "Selecione as metas que deseja deletar:",
+    choices: [...uncheckedGoals],
+    instructions: false
+  });
+
+  if (goalsToDelete.length == 0) {
+    message = "Nenhuma meta foi selecionada!";
+    return;
+  }
+
+  goalsToDelete.forEach((item) => {
+    goals = goals.filter((goal) => {
+      console.log(`diferente: ${goal.value != item}`);
+      return goal.value != item;
+    });
+  });
+
+  message = "Meta(s) deletada(s)com sucesso!";
+};
+const showMessage = async () => {
+  console.clear();
+  if (message != "") {
+    console.log(chalk.green(message));
+    console.log("");
+    message = "";
+  }
+};
+
 const start = async () => {
+  await fetchGoals();
+
   while (true) {
+    showMessage();
+    await saveGoals();
+
     const option = await select({
       message: "Menu > ",
       choices: [
@@ -101,6 +160,10 @@ const start = async () => {
         {
           name: "Listar meta(s) não realizada(s)",
           value: "incompleted"
+        },
+        {
+          name: "Deletar meta(s)",
+          value: "delete"
         },
         {
           name: "Sair",
@@ -122,6 +185,9 @@ const start = async () => {
         break;
       case "incompleted":
         await listIncompletedGoals();
+        break;
+      case "delete":
+        await deleteGoals();
         break;
       case "out":
         console.log("Até a próxima!");
