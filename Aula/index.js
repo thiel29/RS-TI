@@ -30,7 +30,7 @@ const registerGoal = async () => {
     return;
   }
   goals.push({ value: goal, checked: false });
-  mesage = "Meta cadastrada com sucesso!";
+  message = "Meta cadastrada com sucesso!";
 };
 
 const listGoals = async () => {
@@ -128,6 +128,7 @@ const deleteGoals = async () => {
 };
 const showMessage = async () => {
   console.clear();
+
   if (message != "") {
     console.log(chalk.green(message));
     console.log("");
