@@ -1,6 +1,22 @@
 [
   {
-    "value": "Ler todos os dias",
+    "value": "ler toda semana",
+    "checked": true
+  },
+  {
+    "value": "abrir um pote",
+    "checked": true
+  },
+  {
+    "value": "abrir uma garrafa",
+    "checked": false
+  },
+  {
+    "value": "ajudar pessoas",
+    "checked": false
+  },
+  {
+    "value": "jogar videogame",
     "checked": false
   }
 ]
