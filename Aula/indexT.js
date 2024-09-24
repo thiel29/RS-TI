@@ -1,3 +1,4 @@
+/* Nomes: Ana Thiel Fortes, Davi de Oliveira Alves e Dieizon Cazuni*/
 import fs from "node:fs/promises";
 import { select, input, checkbox } from "@inquirer/prompts";
 import chalk from "chalk";
@@ -210,7 +211,7 @@ const showPercentage = async () => {
 
 const showMessage = () => {
   if (message != "") {
-    console.log(chalk.green.italic(message));
+    console.log(chalk.bgGreen.italic(message));
     console.log("");
     message = "";
   }
@@ -224,38 +225,38 @@ const start = async () => {
     await saveGoals();
 
     const option = await select({
-      message: "Menu > ",
+      message: chalk.bgMagenta.italic.bold("Menu > "),
       choices: [
         {
-          name: "Cadastrar meta",
+          name: chalk.magenta.italic("Cadastrar meta"),
           value: "register"
         },
         {
-          name: "Porcentagem da(s) meta(s)",
+          name: chalk.magenta.italic("Porcentagem da(s) meta(s)"),
           value: "percentage"
         },
         {
-          name: "Listar meta(s)",
+          name: chalk.magenta.italic("Listar meta(s)"),
           value: "list"
         },
         {
-          name: "Listar meta(s) realizada(s)",
+          name: chalk.magenta.italic("Listar meta(s) realizada(s)"),
           value: "completed"
         },
         {
-          name: "Listar meta(s) não realizada(s)",
+          name: chalk.magenta.italic("Listar meta(s) não realizada(s)"),
           value: "incompleted"
         },
         {
-          name: "Atualizar meta(s)",
+          name: chalk.magenta.italic("Atualizar meta(s)"),
           value: "update"
         },
         {
-          name: "Deletar meta(s)",
+          name: chalk.magenta.italic("Deletar meta(s)"),
           value: "delete"
         },
         {
-          name: "Sair",
+          name: chalk.magenta.italic("Sair"),
           value: "out"
         }
       ]
@@ -285,7 +286,7 @@ const start = async () => {
         await deleteGoals();
         break;
       case "out":
-        console.log("Até a próxima!");
+        console.log(chalk.bgMagenta.italic("Até a próxima!"));
         return;
     }
   }
