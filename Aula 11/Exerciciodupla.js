@@ -158,9 +158,39 @@ const updateContacts = async () => {
   message = "Contato(s) atualizado(s) com sucesso!";
 };
 
+const deleteContacts = async () => {
+  if (contacts.length == 0) {
+    message = " Não existem contatos cadastrados!";
+    return;
+  }
+
+  const uncheckedContacts = contacts.map((contact) => {
+    return { value: contact.name, checkd: false };
+  });
+
+  const contactsToDelete = await checkbox({
+    message: "Selecione o contato que deseja deletar: ",
+    choices: [...uncheckedContacts],
+    instructions: false
+  });
+
+  if (contactsToDelete.length == 0) {
+    message = "Nenhum contato foi selecionado!";
+    return;
+  }
+
+  contacts = contacts.filter(
+    (contact) => !contactsToDelete.includes(contact.name)
+  );
+
+  await saveContacts();
+
+  message = "Contato(s) deletado(s) com sucesso!";
+};
+
 const showMessage = () => {
   if (message !== "") {
-    console.log(chalk.bgGreen.italic(message));
+    console.log(chalk.bgMagenta.italic(message));
     console.log("");
   }
 };
@@ -177,6 +207,7 @@ const start = async () => {
         { name: "Adicionar contato: ", value: "add" },
         { name: "Listar todos os contatos: ", value: "list" },
         { name: "Atualizar seu contato: ", value: "update" },
+        { name: "Deletar contato: ", value: "delete" },
         { name: "Sair", value: "exit" }
       ]
     });
@@ -191,8 +222,11 @@ const start = async () => {
       case "update":
         await updateContacts();
         break;
+      case "delete":
+        await deleteContacts();
+        break;
       case "exit":
-        console.log("Até a próxima!");
+        console.log(chalk.magenta.italic("Até a próxima!"));
         return;
     }
   }
