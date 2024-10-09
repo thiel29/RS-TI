@@ -2,56 +2,141 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  height: 100vh;
-  background-color: #0f0d13;
+  background: #0f0d13;
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.card {
+#app {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-areas: "A B" "A C";
+  gap: 2rem;
+  place-content: center;
+  height: 100vh;
+}
+
+#player-1 {
+  grid-area: A;
+  padding: 3.125rem 2.375rem;
+}
+
+#player-1 .wrapper {
+  width: 11.875rem;
+}
+
+#player-1 img {
+  width: 11.875rem;
+  height: 11.875rem;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}
+
+#player-1 .info {
+  margin-top: 1.75rem;
+}
+
+#player-2 {
+  grid-area: B;
+  height: fit-content;
+}
+
+#player-3 {
+  grid-area: C;
+  height: fit-content;
+}
+
+.player {
   background-color: #2a2141;
-  width: 266.488px;
-  height: 498px;
+  padding: 1.75rem;
+  border-radius: 0.625rem;
+}
+
+.player img {
+  width: 5.25rem;
+  height: 5.25rem;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}
+
+.info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.info {
   color: #e1e1e6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9.6px;
+}
+.info h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
 }
 
-.card .logobanda {
-  width: 189.66px;
-  height: 189.66px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.card .namemusic {
-  font-size: 19px;
-  font-weight: 400;
+.info p {
+  opacity: 0.67;
+  font-size: 1.1875rem;
 }
 
-.card .music {
-  font-size: 24px;
-  font-weight: 700;
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.75rem;
+  color: #e1e1e6;
 }
 
-.card .play {
-  width: 28.81px;
-  height: 28.81px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.track {
+  margin-top: 1.75rem;
+  position: relative;
 }
 
 i {
-  color: white;
+  font-size: 1.75rem;
+}
+
+.track::before,
+.track::after {
+  content: "";
+  display: block;
+  height: 0.375rem;
+  border-radius: 0.625rem;
+  background-color: #d9d9d9;
+}
+
+.track::before {
+  width: 100%;
+  opacity: 0.3;
+  position: absolute;
+}
+
+.track::after {
+  width: 80%;
+}
+
+.time {
+  font-size: 0.875rem;
+  color: #c4c4c4;
+  opacity: 0.7;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 670px) {
+  #app {
+    display: flex;
+    flex-direction: column;
+    max-width: 16.875rem;
+    height: auto;
+    width: auto;
+
+    padding-block: 3.75rem;
+  }
+
+  .horizontal .controls {
+    padding-inline: 1.875rem;
+  }
 }
