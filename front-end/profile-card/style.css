@@ -21,6 +21,17 @@ ul {
   list-style: none;
 }
 
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #bf04a0;
+  border-radius: 12px 5px;
+  padding: 10px;
+  color: white;
+  font-style: italic;
+}
+
 .profile-card {
   display: flex;
   flex-direction: column;
@@ -70,15 +81,16 @@ ul {
   color: #333;
 }
 
-.text-data .name {
+.text-data #name {
   font-family: "Tangerine", cursive;
   font-weight: 700;
   font-size: 40px;
 }
 
-.text-data .job {
+.text-data .bio {
   font-size: 14px;
   font-weight: 400;
+  font-style: italic;
 }
 
 .media-buttons {
