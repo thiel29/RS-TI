@@ -317,17 +317,22 @@ header .container nav a:hover {
 }
 
 .how-to-use h1 {
+  position: absolute;
+  left: 0;
+  top: 180px;
   font-family: var(--secondary-font);
   font-weight: 400;
   font-size: 8.4rem;
   color: #c5c5c5;
+  transform: rotate(-90deg) translateX(-16rem); /* Rotaciona o texto 90 graus */
+  transform-origin: center; /* Define o ponto de origem da rotação */
+  white-space: nowrap; /* Impede a quebra de linha */
 }
 
 .how-to-use .container img {
   padding-bottom: 7rem;
-}
-.how-to-use .steps {
-  padding-right: 5.4rem;
+  width: 569px;
+  height: 589px;
 }
 
 .how-to-use .steps ul li strong {
@@ -493,7 +498,7 @@ header .container nav a:hover {
 
 .card-sticker {
   width: 100%;
-  max-width: 37.8rem;
+  /*max-width: 37.8rem;*/
   border-radius: 2rem;
   border: 1px solid var(--secondary-color);
   padding: 0.5rem;
@@ -560,7 +565,8 @@ header .container nav a:hover {
   overflow: hidden;
   padding-top: 11.3rem;
   padding-bottom: 13.4rem;
-  background: url("assets/bg-world.svg") no-repeat bottom center;
+  background: url("assets/bg-world.png") no-repeat bottom center;
+  background-size: cover;
 }
 
 .s-world .container {
@@ -807,5 +813,183 @@ footer .left {
 
   .s-info .content ul li:last-child {
     padding-bottom: 0;
+  }
+
+  .how-to-use .container img {
+    position: absolute;
+    padding-bottom: 0;
+    right: 49px;
+    height: 283px;
+  }
+
+  .how-to-use h1 {
+    padding: 50px;
+    top: 0;
+  }
+
+  .how-to-use .steps .ul-wrapper {
+    padding-top: 40rem;
+    padding-bottom: 8.6rem;
+
+    overflow: hidden;
+    width: 67rem; /* descontando o paddign de 15px de cada lado */
+    display: flex;
+    justify-content: center;
+  }
+
+  .how-to-use .steps ul li strong {
+    font-size: 1.4rem;
+  }
+  .how-to-use .steps ul li p {
+    font-size: 1.3rem;
+  }
+
+  .s-stories .title {
+    text-align: center;
+  }
+
+  .title h4 {
+    font-size: 1.6rem;
+  }
+
+  .title h2 {
+    text-align: center;
+    font-size: 14.3rem;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: -10rem;
+  }
+
+  .text .description p {
+    font-size: 1.3rem;
+  }
+
+  .text .description p:not(:last-child) {
+    margin-bottom: 1.3rem;
+  }
+
+  .s-stories .ilustra {
+    width: 24.4rem;
+    height: 38.3rem;
+  }
+  .arrow {
+    left: 58px;
+    transform: rotate(-29deg);
+    bottom: -32rem;
+  }
+
+  .s-stickers .all {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+  }
+  .s-world .title {
+    text-align: center;
+    margin-bottom: 5.4rem;
+  }
+
+  .s-stickers .title h2 {
+    font-size: 12rem;
+  }
+
+  .s-stickers .title .subtitle {
+    font-size: 2.5rem;
+  }
+
+  .s-world {
+    background-size: contain;
+  }
+
+  .s-world .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 42rem;
+    height: 84rem;
+  }
+
+  .s-world .title h2 {
+    font-size: 17.2rem;
+    font-weight: 400;
+    margin-bottom: 2.7rem;
+  }
+
+  .s-world .title span {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .s-world p {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  .hawk {
+    width: 16.4rem;
+    height: 38.7rem;
+    top: 51.6rem;
+    left: -8px;
+  }
+
+  .tiger {
+    width: 17.5rem;
+    height: 33.8rem;
+    bottom: 0;
+    left: 0;
+  }
+
+  .octopus {
+    width: 14.9rem;
+    height: 38.1rem;
+    top: 56rem;
+    right: 0;
+  }
+
+  .owl {
+    width: 16.8rem;
+    height: 35.4rem;
+    right: 0;
+    bottom: 0.1rem;
+  }
+
+  footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding-top: 4.9rem;
+    padding-bottom: 5.5rem;
+  }
+
+  footer .first-area {
+    text-align: -webkit-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  footer .first-area .left {
+    padding-bottom: 4rem;
+  }
+
+  .footer-right ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-right li:not(:first-child) {
+    border-right: 1px solid var(--light-gray);
+    padding-left: 1.6rem;
+  }
+
+  .footer-right li:last-child {
+    border-right: none;
+  }
+
+  .second-area {
+    flex-direction: column;
   }
 }
