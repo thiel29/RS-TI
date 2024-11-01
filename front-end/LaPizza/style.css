@@ -14,8 +14,8 @@
 body {
   width: 375px;
   height: 3016px;
-  top: -1140px;
-  left: 2076px;
+  /*top: -1140px;
+  left: 2076px;*/
   gap: 10px;
 }
 
@@ -28,12 +28,16 @@ body {
 .box {
   display: grid;
   justify-items: center;
+  align-items: center;
   text-align: center;
   padding-top: 48px;
   padding-right: 24px;
   padding-bottom: 48px;
   padding-left: 24px;
   gap: 50px;
+  margin-bottom: 50px;
+
+  position: relative;
 }
 
 .box .content {
@@ -41,14 +45,75 @@ body {
   height: 300px;
   background: var(--dark-20);
   border: var(--dark-30);
+  margin: auto;
   border-radius: 16px;
   opacity: 100%;
+  margin-bottom: 39px;
 }
 
-.content .pizzas {
+.maisvendidas {
+  margin-bottom: 50px;
+  width: 167px;
+  height: 29px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.pizzas {
+  display: flex;
+  justify-content: center;
+}
+
+#pizza {
   width: 120px;
   height: 120px;
-  padding-left: 47.5px;
-  padding-left: 47.5px;
-  border: 1px solid red;
+  margin-top: -47.5px;
+}
+
+#icone {
+  width: 32px;
+  height: 32px;
+
+  left: 297px;
+  bottom: 331px;
+}
+
+.title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+.title p {
+  padding-bottom: 20px;
+  padding-top: 16px;
+  margin: auto;
+}
+.title p.um {
+  font-size: 16px;
+  font-weight: 400;
+  width: 215px;
+  height: 48px;
+}
+.title p.dois {
+  width: 141px;
+  height: 39px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.link {
+  width: 206px;
+  height: 41px;
+  background-color: var(--brand-color);
+  border-radius: 25px;
+  border: none;
+  margin-top: 59px;
+  padding: 12px 12px;
+}
+
+.link h1 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
