@@ -14,8 +14,6 @@
 body {
   width: 375px;
   height: 3016px;
-  /*top: -1140px;
-  left: 2076px;*/
   gap: 10px;
 }
 
@@ -26,6 +24,8 @@ body {
 }
 
 .box {
+  width: 375px;
+  height: 1732px;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -35,7 +35,6 @@ body {
   padding-bottom: 48px;
   padding-left: 24px;
   gap: 50px;
-  margin-bottom: 50px;
 
   position: relative;
 }
@@ -61,7 +60,8 @@ body {
 
 .pizzas {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin-left: 80px;
 }
 
 #pizza {
@@ -73,9 +73,9 @@ body {
 #icone {
   width: 32px;
   height: 32px;
-
   left: 297px;
   bottom: 331px;
+  margin-top: -16.5px;
 }
 
 .title h1 {
@@ -110,10 +110,108 @@ body {
   border: none;
   margin-top: 59px;
   padding: 12px 12px;
+  cursor: pointer;
 }
 
 .link h1 {
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.container {
+  width: 375px;
+  height: 984px;
+  background-color: var(--dark-20);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container #restaurante {
+  width: 327px;
+  height: 400px;
+  margin: 64px;
+}
+
+.container h1 .sobre {
+  width: 285px;
+  height: 44px;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.container .amarelo {
+  color: #ffbd48;
+}
+
+.container .vermelho {
+  color: #ff3536;
+}
+
+.container .verde {
+  color: #60bb28;
+}
+
+.container p {
+  width: 327px;
+  height: 243px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  margin: 24px;
+  margin-top: 32px;
+}
+
+.container .link {
+  margin: bottom 64px;
+  align-self: flex-start;
+  margin: 24px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    width: 768px;
+    height: 2255px;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 768px;
+    height: 400px;
+    gap: 10px;
+  }
+
+  .box {
+    width: 768px;
+    height: 1006px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .maisvendidas {
+    width: 250px;
+    height: 44px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    width: 768px;
+    height: 849px;
+    background-color: var(--dark-20);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container #restaurante {
+    width: 704px;
+    height: 400px;
+    margin: 64px;
+    border-radius: 6px;
+  }
 }
